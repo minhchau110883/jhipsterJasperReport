@@ -1,0 +1,33 @@
+{
+    "generator-jhipster": {
+        "promptValues": {
+            "packageName": "com.chaung.jasper"
+        },
+        "jhipsterVersion": "5.7.2",
+        "applicationType": "monolith",
+        "baseName": "jhipsterJasperReport",
+        "packageName": "com.chaung.jasper",
+        "packageFolder": "com/chaung/jasper",
+        "serverPort": "8080",
+        "authenticationType": "jwt",
+        "cacheProvider": "ehcache",
+        "enableHibernateCache": true,
+        "websocket": false,
+        "databaseType": "sql",
+        "devDatabaseType": "h2Disk",
+        "prodDatabaseType": "mysql",
+        "searchEngine": false,
+        "messageBroker": false,
+        "serviceDiscoveryType": false,
+        "buildTool": "maven",
+        "enableSwaggerCodegen": false,
+        "jwtSecretKey": "NzdjNjk0ZTU5MGIxMWI5ZDdmZmVhNGU3ZjkxZDcyN2RhNWY4ZTU3ZTFmYzUzNTcxYjNkM2ZlNTExMTA3NGU0OWIyOWMwYjAyZjEzZDk4N2Y4YzQ3ODg5OWQzZWY2M2UyNjA3NjdjZTliMmEwN2MxNTJhOTExMWY5M2Y4ZTAwZWI=",
+        "clientFramework": "angularX",
+        "useSass": true,
+        "clientPackageManager": "npm",
+        "testFrameworks": [],
+        "jhiPrefix": "jhi",
+        "otherModules": [],
+        "enableTranslation": false
+    }
+}
