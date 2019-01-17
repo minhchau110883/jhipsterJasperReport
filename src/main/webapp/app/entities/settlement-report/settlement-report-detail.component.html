@@ -1,0 +1,95 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="settlementReport">
+            <h2><span>Settlement Report</span> {{settlementReport.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span>Partner Transaction Id</span></dt>
+                <dd>
+                    <span>{{settlementReport.partnerTransactionId}}</span>
+                </dd>
+                <dt><span>Transaction Id</span></dt>
+                <dd>
+                    <span>{{settlementReport.transactionId}}</span>
+                </dd>
+                <dt><span>Contact Id</span></dt>
+                <dd>
+                    <span>{{settlementReport.contactId}}</span>
+                </dd>
+                <dt><span>Outlet Id</span></dt>
+                <dd>
+                    <span>{{settlementReport.outletId}}</span>
+                </dd>
+                <dt><span>Outlet Name</span></dt>
+                <dd>
+                    <span>{{settlementReport.outletName}}</span>
+                </dd>
+                <dt><span>Amount</span></dt>
+                <dd>
+                    <span>{{settlementReport.amount}}</span>
+                </dd>
+                <dt><span>Fee</span></dt>
+                <dd>
+                    <span>{{settlementReport.fee}}</span>
+                </dd>
+                <dt><span>Vat</span></dt>
+                <dd>
+                    <span>{{settlementReport.vat}}</span>
+                </dd>
+                <dt><span>Fee Included</span></dt>
+                <dd>
+                    <span>{{settlementReport.feeIncluded}}</span>
+                </dd>
+                <dt><span>Settlement</span></dt>
+                <dd>
+                    <span>{{settlementReport.settlement}}</span>
+                </dd>
+                <dt><span>Currency</span></dt>
+                <dd>
+                    <span>{{settlementReport.currency}}</span>
+                </dd>
+                <dt><span>Wht</span></dt>
+                <dd>
+                    <span>{{settlementReport.wht}}</span>
+                </dd>
+                <dt><span>Payment Time</span></dt>
+                <dd>
+                    <span>{{settlementReport.paymentTime}}</span>
+                </dd>
+                <dt><span>Settlement Time</span></dt>
+                <dd>
+                    <span>{{settlementReport.settlementTime}}</span>
+                </dd>
+                <dt><span>Type</span></dt>
+                <dd>
+                    <span>{{settlementReport.type}}</span>
+                </dd>
+                <dt><span>Sof</span></dt>
+                <dd>
+                    <span>{{settlementReport.sof}}</span>
+                </dd>
+                <dt><span>Merchant Id</span></dt>
+                <dd>
+                    <span>{{settlementReport.merchantId}}</span>
+                </dd>
+                <dt><span>Payment Channel</span></dt>
+                <dd>
+                    <span>{{settlementReport.paymentChannel}}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/settlement-report', settlementReport.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

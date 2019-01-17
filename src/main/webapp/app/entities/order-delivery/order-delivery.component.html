@@ -1,0 +1,70 @@
+<div>
+    <h2 id="page-heading">
+        <span>Order Deliveries</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-order-delivery" [routerLink]="['/order-delivery/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span >
+            Create new Order Delivery
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="table-responsive" *ngIf="orderDeliveries">
+        <table class="table table-striped">
+            <thead>
+            <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="reset.bind(this)">
+            <th jhiSortBy="id"><span>ID</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="employeeId"><span>Employee Id</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="customerName"><span>Customer Name</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="customerAddress"><span>Customer Address</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="customerPhone"><span>Customer Phone</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="menu"><span>Menu</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="totalAmount"><span>Total Amount</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="orderDate"><span>Order Date</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="shippedDate"><span>Shipped Date</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="shipVia"><span>Ship Via</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody infinite-scroll (scrolled)="loadPage(page + 1)" [infiniteScrollDisabled]="page >= links['last']" [infiniteScrollDistance]="0">
+            <tr *ngFor="let orderDelivery of orderDeliveries ;trackBy: trackId">
+                <td><a [routerLink]="['/order-delivery', orderDelivery.id, 'view' ]">{{orderDelivery.id}}</a></td>
+                <td>{{orderDelivery.employeeId}}</td>
+                <td>{{orderDelivery.customerName}}</td>
+                <td>{{orderDelivery.customerAddress}}</td>
+                <td>{{orderDelivery.customerPhone}}</td>
+                <td>{{orderDelivery.menu}}</td>
+                <td>{{orderDelivery.totalAmount}}</td>
+                <td>{{orderDelivery.orderDate | date:'medium'}}</td>
+                <td>{{orderDelivery.shippedDate | date:'medium'}}</td>
+                <td>{{orderDelivery.shipVia}}</td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['/order-delivery', orderDelivery.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/order-delivery', orderDelivery.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'order-delivery/'+ orderDelivery.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

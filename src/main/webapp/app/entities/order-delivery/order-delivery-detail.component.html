@@ -1,0 +1,59 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="orderDelivery">
+            <h2><span>Order Delivery</span> {{orderDelivery.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span>Employee Id</span></dt>
+                <dd>
+                    <span>{{orderDelivery.employeeId}}</span>
+                </dd>
+                <dt><span>Customer Name</span></dt>
+                <dd>
+                    <span>{{orderDelivery.customerName}}</span>
+                </dd>
+                <dt><span>Customer Address</span></dt>
+                <dd>
+                    <span>{{orderDelivery.customerAddress}}</span>
+                </dd>
+                <dt><span>Customer Phone</span></dt>
+                <dd>
+                    <span>{{orderDelivery.customerPhone}}</span>
+                </dd>
+                <dt><span>Menu</span></dt>
+                <dd>
+                    <span>{{orderDelivery.menu}}</span>
+                </dd>
+                <dt><span>Total Amount</span></dt>
+                <dd>
+                    <span>{{orderDelivery.totalAmount}}</span>
+                </dd>
+                <dt><span>Order Date</span></dt>
+                <dd>
+                    <span>{{orderDelivery.orderDate}}</span>
+                </dd>
+                <dt><span>Shipped Date</span></dt>
+                <dd>
+                    <span>{{orderDelivery.shippedDate}}</span>
+                </dd>
+                <dt><span>Ship Via</span></dt>
+                <dd>
+                    <span>{{orderDelivery.shipVia}}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/order-delivery', orderDelivery.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,352 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.6.0.final using JasperReports Library version 6.6.0  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd"
+              name="order_delivery_by_shipper_report"
+              pageWidth="842" pageHeight="595" orientation="Landscape"
+              columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20"
+              isIgnorePagination="true"
+              uuid="df013db5-f76e-44d3-b0df-bcbc46d93160">
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="jhipsterJasperReport Connection"/>
+    <property name="net.sf.jasperreports.export.xls.password" value="chau"/>
+	<style name="Title" fontName="Times New Roman" fontSize="50" isBold="true"/>
+	<style name="SubTitle" forecolor="#736343" fontName="Arial" fontSize="18"/>
+	<style name="Column header" forecolor="#666666" fontName="Arial" fontSize="12" isBold="true"/>
+	<style name="Detail" fontName="Arial" fontSize="12"/>
+	<style name="Row" mode="Transparent">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$V{REPORT_COUNT}%2 == 0]]></conditionExpression>
+			<style backcolor="#E6DAC3"/>
+		</conditionalStyle>
+	</style>
+
+    <!-- ============================ PARAMETERS ============================= -->
+	<parameter name="shipperName" class="java.lang.String"/>
+	<parameter name="reportDate" class="java.time.ZonedDateTime"/>
+	<parameter name="imagesSourceFolder" class="java.lang.String"/>
+	<parameter name="totalAmount" class="java.lang.Double"/>
+	<parameter name="totalOrder" class="java.lang.Integer"/>
+
+    <!-- ============================ QUERY ============================= -->
+	<!--
+    <queryString language="SQL">
+		<![CDATA[select * from jhipsterJasperReport.order_delivery]]>
+	</queryString>
+    -->
+    <queryString>
+        <![CDATA[]]>
+    </queryString>
+
+    <!-- ============================ FIELD ============================= -->
+	<field name="id" class="java.lang.Long">
+        <fieldDescription><![CDATA[id]]></fieldDescription>
+	</field>
+	<field name="employeeId" class="java.lang.Long">
+        <fieldDescription><![CDATA[employeeId]]></fieldDescription>
+	</field>
+	<field name="customerName" class="java.lang.String">
+        <fieldDescription><![CDATA[customerName]]></fieldDescription>
+	</field>
+	<field name="customerAddress" class="java.lang.String">
+        <fieldDescription><![CDATA[customerAddress]]></fieldDescription>
+	</field>
+	<field name="customerPhone" class="java.lang.String">
+        <fieldDescription><![CDATA[customerPhone]]></fieldDescription>
+	</field>
+	<field name="menu" class="java.lang.String">
+        <fieldDescription><![CDATA[menu]]></fieldDescription>
+	</field>
+	<field name="totalAmount" class="java.lang.Double">
+        <fieldDescription><![CDATA[totalAmount]]></fieldDescription>
+	</field>
+	<field name="orderDate" class="java.time.ZonedDateTime">
+        <fieldDescription><![CDATA[orderDate]]></fieldDescription>
+	</field>
+	<field name="shippedDate" class="java.time.ZonedDateTime">
+        <fieldDescription><![CDATA[shippedDate]]></fieldDescription>
+	</field>
+	<field name="shipVia" class="java.lang.String">
+        <fieldDescription><![CDATA[shipVia]]></fieldDescription>
+	</field>
+
+
+    <!-- ============================ TITLE ============================= -->
+	<title>
+        <band height="209" splitType="Stretch">
+            <staticText>
+                <reportElement style="Title" mode="Opaque" x="0" y="0" width="360" height="62" backcolor="#0000FF" uuid="bc1ce1da-8232-46ea-be55-cec4abb986dd"/>
+                <textElement verticalAlignment="Middle">
+                    <font size="36"/>
+                </textElement>
+                <text><![CDATA[ChauNg CoffeeShop]]></text>
+            </staticText>
+            <staticText>
+                <reportElement style="SubTitle" mode="Opaque" x="0" y="62" width="360" height="34" forecolor="#0C24F7" backcolor="#000000" uuid="f6a78448-8260-4445-a9e0-e3fb53b080d9"/>
+                <textElement>
+                    <font fontName="Times New Roman" size="23" isBold="true"/>
+                </textElement>
+                <text><![CDATA[Order Delivery Report]]></text>
+            </staticText>
+            <image>
+                <reportElement x="450" y="0" width="140" height="129" uuid="1c003177-754c-448f-8ce1-16868856f545"/>
+                <imageExpression><![CDATA[$P{imagesSourceFolder} + "/coffee.jpg"]]></imageExpression>
+            </image>
+            <image>
+                <reportElement x="590" y="0" width="212" height="190" uuid="4aa6f4d1-27dc-4b34-9227-59e19ce2c959"/>
+                <imageExpression><![CDATA[$P{imagesSourceFolder} + "/coffee_stain.png"]]></imageExpression>
+            </image>
+            <staticText>
+                <reportElement x="0" y="110" width="130" height="19" uuid="d70fc043-2b23-42c7-b4b1-ee36d48886fd"/>
+                <textElement>
+                    <font size="12" isBold="true"/>
+                </textElement>
+                <text><![CDATA[Shipper name:]]></text>
+            </staticText>
+            <textField>
+                <reportElement x="130" y="110" width="230" height="19" uuid="609f45b3-9a1f-4ea0-861a-7f57f2891a7f"/>
+                <textFieldExpression><![CDATA[$P{shipperName}]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement x="130" y="129" width="230" height="21" uuid="1f848d7b-ae54-4c4a-bcec-dda924bef203"/>
+                <textFieldExpression><![CDATA[$P{reportDate}]]></textFieldExpression>
+            </textField>
+            <staticText>
+                <reportElement x="0" y="129" width="130" height="21" uuid="58378a42-61f1-4b6c-8c8d-9584c0314125"/>
+                <textElement>
+                    <font size="12" isBold="true"/>
+                </textElement>
+                <text><![CDATA[Report date:]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="0" y="150" width="130" height="20" uuid="c763d4d6-2f4f-4787-b09e-d9e2a62ebf6c"/>
+                <textElement>
+                    <font size="12" isBold="true"/>
+                </textElement>
+                <text><![CDATA[Total order:]]></text>
+            </staticText>
+            <textField pattern="#,###.##">
+                <reportElement x="130" y="170" width="230" height="20" uuid="8e57c89b-d5b2-4020-848e-18b7c512ab9c"/>
+                <textFieldExpression><![CDATA[$P{totalAmount}]]></textFieldExpression>
+            </textField>
+            <staticText>
+                <reportElement x="0" y="170" width="130" height="20" uuid="c0473dfa-ac8a-43ca-b027-cfe41be53b51"/>
+                <textElement>
+                    <font size="12" isBold="true"/>
+                </textElement>
+                <text><![CDATA[Total amount:]]></text>
+            </staticText>
+            <textField>
+                <reportElement x="130" y="150" width="230" height="20" uuid="f3d41fff-be58-45fc-bec7-022141fd67c6"/>
+                <textFieldExpression><![CDATA[$P{totalOrder}]]></textFieldExpression>
+            </textField>
+        </band>
+	</title>
+
+    <!-- ============================ PAGE HEADER ============================= -->
+	<pageHeader>
+	</pageHeader>
+
+    <!-- ============================ COLUMN HEADER ============================= -->
+    <columnHeader>
+        <band height="22" splitType="Stretch">
+            <staticText>
+                <reportElement mode="Opaque" x="0" y="0" width="60" height="22" backcolor="#0066FF" uuid="52996182-af58-4059-b104-e3ef38173cf0"/>
+                <box>
+                    <pen lineWidth="0.25"/>
+                </box>
+                <textElement textAlignment="Center" verticalAlignment="Middle">
+                    <font isBold="true"/>
+                </textElement>
+                <text><![CDATA[Order Id]]></text>
+            </staticText>
+            <staticText>
+                <reportElement mode="Opaque" x="60" y="0" width="70" height="22" backcolor="#0066FF" uuid="0a72194f-1260-4243-99fd-e1db5599685d"/>
+                <box>
+                    <pen lineWidth="0.25"/>
+                </box>
+                <textElement textAlignment="Center" verticalAlignment="Middle">
+                    <font isBold="true"/>
+                </textElement>
+                <text><![CDATA[Employee Id]]></text>
+            </staticText>
+            <staticText>
+                <reportElement mode="Opaque" x="130" y="0" width="110" height="22" backcolor="#0066FF" uuid="51d2cce0-5f61-4c5b-89bb-a2a3d7530c17"/>
+                <box>
+                    <pen lineWidth="0.25"/>
+                </box>
+                <textElement textAlignment="Center" verticalAlignment="Middle">
+                    <font isBold="true"/>
+                </textElement>
+                <text><![CDATA[Customer Name]]></text>
+            </staticText>
+            <staticText>
+                <reportElement mode="Opaque" x="240" y="0" width="120" height="22" backcolor="#0066FF" uuid="94b2a9da-bdfd-418c-8616-7b3ae0556446"/>
+                <box>
+                    <pen lineWidth="0.25"/>
+                </box>
+                <textElement textAlignment="Center" verticalAlignment="Middle">
+                    <font isBold="true"/>
+                </textElement>
+                <text><![CDATA[Customer Address]]></text>
+            </staticText>
+            <staticText>
+                <reportElement mode="Opaque" x="360" y="0" width="90" height="22" backcolor="#0066FF" uuid="9d7244dd-b37b-4e60-9c7d-c509829a6c26"/>
+                <box>
+                    <pen lineWidth="0.25"/>
+                </box>
+                <textElement textAlignment="Center" verticalAlignment="Middle">
+                    <font isBold="true"/>
+                </textElement>
+                <text><![CDATA[Customer Phone]]></text>
+            </staticText>
+            <staticText>
+                <reportElement mode="Opaque" x="450" y="0" width="80" height="22" backcolor="#0066FF" uuid="a14c8710-6d57-4cd6-a3a8-f0567af1c086"/>
+                <box>
+                    <pen lineWidth="0.25"/>
+                </box>
+                <textElement textAlignment="Center" verticalAlignment="Middle">
+                    <font isBold="true"/>
+                </textElement>
+                <text><![CDATA[Menu]]></text>
+            </staticText>
+            <staticText>
+                <reportElement mode="Opaque" x="530" y="0" width="60" height="22" backcolor="#0066FF" uuid="0b497e03-6241-4dd1-82cd-b16db3a5d617"/>
+                <box>
+                    <pen lineWidth="0.25"/>
+                </box>
+                <textElement textAlignment="Center" verticalAlignment="Middle">
+                    <font isBold="true"/>
+                </textElement>
+                <text><![CDATA[Amount]]></text>
+            </staticText>
+            <staticText>
+                <reportElement mode="Opaque" x="590" y="0" width="68" height="22" backcolor="#0066FF" uuid="c142da64-a5b4-45b4-81c2-c7517973ac7d"/>
+                <box>
+                    <pen lineWidth="0.25"/>
+                </box>
+                <textElement textAlignment="Center" verticalAlignment="Middle">
+                    <font isBold="true"/>
+                </textElement>
+                <text><![CDATA[Order Date]]></text>
+            </staticText>
+            <staticText>
+                <reportElement mode="Opaque" x="658" y="0" width="72" height="22" backcolor="#0066FF" uuid="73f0b487-4d76-42e1-97a5-9b23b2112f03"/>
+                <box>
+                    <pen lineWidth="0.25"/>
+                </box>
+                <textElement textAlignment="Center" verticalAlignment="Middle">
+                    <font isBold="true"/>
+                </textElement>
+                <text><![CDATA[Shipped Date]]></text>
+            </staticText>
+            <staticText>
+                <reportElement mode="Opaque" x="730" y="0" width="72" height="22" backcolor="#0066FF" uuid="d7be10b9-2e58-41e3-a1b2-2b89407874c4"/>
+                <box>
+                    <pen lineWidth="0.25"/>
+                </box>
+                <textElement textAlignment="Center" verticalAlignment="Middle">
+                    <font isBold="true"/>
+                </textElement>
+                <text><![CDATA[Shipped Via]]></text>
+            </staticText>
+        </band>
+    </columnHeader>
+
+    <!-- ============================ DETAIL ============================= -->
+	<detail>
+        <band height="15" splitType="Stretch">
+            <textField isStretchWithOverflow="true" isBlankWhenNull="true">
+                <reportElement stretchType="ElementGroupHeight" x="0" y="0" width="60" height="15" uuid="7b9fb0ee-70d3-41e0-a70e-929af63c535e"/>
+                <box padding="2">
+                    <pen lineWidth="0.5" lineStyle="Solid"/>
+                </box>
+                <textElement textAlignment="Left" verticalAlignment="Top"/>
+                <textFieldExpression><![CDATA[$F{id}]]></textFieldExpression>
+            </textField>
+            <textField isStretchWithOverflow="true" isBlankWhenNull="true">
+                <reportElement stretchType="ElementGroupHeight" x="60" y="0" width="70" height="15" uuid="b3d8b64b-54fb-4375-bc95-232636947df0"/>
+                <box padding="2">
+                    <pen lineWidth="0.5" lineStyle="Solid"/>
+                </box>
+                <textElement textAlignment="Left" verticalAlignment="Top"/>
+                <textFieldExpression><![CDATA[$F{employeeId}]]></textFieldExpression>
+            </textField>
+            <textField isStretchWithOverflow="true" isBlankWhenNull="true">
+                <reportElement stretchType="ElementGroupHeight" x="130" y="0" width="110" height="15" uuid="77099140-15e5-4a59-9bfc-48d30165c731"/>
+                <box padding="2">
+                    <pen lineWidth="0.5" lineStyle="Solid"/>
+                </box>
+                <textElement textAlignment="Left" verticalAlignment="Top"/>
+                <textFieldExpression><![CDATA[$F{customerName}]]></textFieldExpression>
+            </textField>
+            <textField isStretchWithOverflow="true" isBlankWhenNull="true">
+                <reportElement stretchType="ElementGroupHeight" x="240" y="0" width="120" height="15" uuid="0a94af3c-99ae-4124-a041-fdd3157fa9c0"/>
+                <box padding="2">
+                    <pen lineWidth="0.5" lineStyle="Solid"/>
+                </box>
+                <textElement textAlignment="Left" verticalAlignment="Top"/>
+                <textFieldExpression><![CDATA[$F{customerAddress}]]></textFieldExpression>
+            </textField>
+            <textField isStretchWithOverflow="true" isBlankWhenNull="true">
+                <reportElement stretchType="ElementGroupHeight" x="360" y="0" width="90" height="15" uuid="4a01cdef-ac3c-41eb-b097-fa75cc738c55"/>
+                <box padding="2">
+                    <pen lineWidth="0.5" lineStyle="Solid"/>
+                </box>
+                <textElement textAlignment="Right" verticalAlignment="Top"/>
+                <textFieldExpression><![CDATA[$F{customerPhone}]]></textFieldExpression>
+            </textField>
+            <textField isStretchWithOverflow="true" isBlankWhenNull="true">
+                <reportElement stretchType="ElementGroupHeight" x="450" y="0" width="80" height="15" uuid="d9df0fa0-0836-4e49-950f-81802667cacc"/>
+                <box padding="2">
+                    <pen lineWidth="0.5" lineStyle="Solid"/>
+                </box>
+                <textElement textAlignment="Left" verticalAlignment="Top"/>
+                <textFieldExpression><![CDATA[$F{menu}]]></textFieldExpression>
+            </textField>
+            <textField isStretchWithOverflow="true" pattern="#,###.##" isBlankWhenNull="true">
+                <reportElement stretchType="ElementGroupHeight" x="530" y="0" width="60" height="15" uuid="db91b7d1-5242-4a96-bdf9-559d47f0ddd7"/>
+                <box padding="2">
+                    <pen lineWidth="0.5" lineStyle="Solid"/>
+                </box>
+                <textElement textAlignment="Right" verticalAlignment="Top"/>
+                <textFieldExpression><![CDATA[$F{totalAmount}]]></textFieldExpression>
+            </textField>
+            <textField isStretchWithOverflow="true" pattern="M/d/yy h:mm a" isBlankWhenNull="true">
+                <reportElement stretchType="ElementGroupHeight" x="590" y="0" width="68" height="15" uuid="47838211-803e-4177-87d9-81ae0eed9070"/>
+                <box padding="2">
+                    <pen lineWidth="0.5" lineStyle="Solid"/>
+                </box>
+                <textElement textAlignment="Left" verticalAlignment="Top"/>
+                <textFieldExpression><![CDATA[$F{orderDate}]]></textFieldExpression>
+            </textField>
+            <textField isStretchWithOverflow="true" pattern="M/d/yy h:mm a" isBlankWhenNull="true">
+                <reportElement stretchType="ElementGroupHeight" x="658" y="0" width="72" height="15" uuid="15ded630-d8b2-4b01-8f38-0b03dbb71ee9"/>
+                <box padding="2">
+                    <pen lineWidth="0.5" lineStyle="Solid"/>
+                </box>
+                <textElement textAlignment="Left" verticalAlignment="Top"/>
+                <textFieldExpression><![CDATA[$F{shippedDate}]]></textFieldExpression>
+            </textField>
+            <textField isStretchWithOverflow="true" isBlankWhenNull="true">
+                <reportElement stretchType="ElementGroupHeight" x="730" y="0" width="72" height="15" uuid="f9832b94-55bf-472b-882e-2a5cdcb1bb3a"/>
+                <box padding="2">
+                    <pen lineWidth="0.5" lineStyle="Solid"/>
+                </box>
+                <textElement textAlignment="Center" verticalAlignment="Top"/>
+                <textFieldExpression><![CDATA[$F{shipVia}]]></textFieldExpression>
+            </textField>
+        </band>
+	</detail>
+	<columnFooter>
+	</columnFooter>
+
+    <!-- ============================ PAGE FOOTER ============================= -->
+	<pageFooter>
+	</pageFooter>
+
+    <!-- ============================ SUMMARY ============================= -->
+	<summary>
+	</summary>
+</jasperReport>

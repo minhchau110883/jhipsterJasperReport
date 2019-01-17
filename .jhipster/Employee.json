@@ -1,0 +1,26 @@
+{
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "relationships": [],
+    "fields": [
+        {
+            "fieldName": "name",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "salary",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "commission",
+            "fieldType": "Float"
+        }
+    ],
+    "changelogDate": "20190114092124",
+    "dto": "mapstruct",
+    "searchEngine": false,
+    "service": "serviceImpl",
+    "entityTableName": "employee",
+    "jpaMetamodelFiltering": true,
+    "pagination": "pagination"
+}

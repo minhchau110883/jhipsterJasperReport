@@ -1,0 +1,86 @@
+{
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "relationships": [],
+    "fields": [
+        {
+            "fieldName": "partnerTransactionId",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "transactionId",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "contactId",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "outletId",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "outletName",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "amount",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "fee",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "vat",
+            "fieldType": "Float"
+        },
+        {
+            "fieldName": "feeIncluded",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "settlement",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "currency",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "wht",
+            "fieldType": "Float"
+        },
+        {
+            "fieldName": "paymentTime",
+            "fieldType": "ZonedDateTime"
+        },
+        {
+            "fieldName": "settlementTime",
+            "fieldType": "ZonedDateTime"
+        },
+        {
+            "fieldName": "type",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "sof",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "merchantId",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "paymentChannel",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20190115072418",
+    "dto": "mapstruct",
+    "searchEngine": false,
+    "service": "serviceImpl",
+    "entityTableName": "settlement_report",
+    "jpaMetamodelFiltering": true,
+    "pagination": "infinite-scroll"
+}

@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd
+                        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+    <property name="now" value="now()" dbms="h2"/>
+
+    <property name="now" value="now()" dbms="mysql"/>
+    <property name="autoIncrement" value="true"/>
+
+    <property name="floatType" value="float4" dbms="postgresql, h2"/>
+    <property name="floatType" value="float" dbms="mysql, oracle, mssql"/>
+
+    <!--
+        Added the entity SettlementReport.
+    -->
+    <changeSet id="20190115072418-1" author="jhipster">
+        <createTable tableName="settlement_report">
+            <column name="id" type="bigint" autoIncrement="${autoIncrement}">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="partner_transaction_id" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="transaction_id" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="contact_id" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="outlet_id" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="outlet_name" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="amount" type="double">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="fee" type="double">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="vat" type="${floatType}">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="fee_included" type="double">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="settlement" type="double">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="currency" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="wht" type="${floatType}">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="payment_time" type="datetime">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="settlement_time" type="datetime">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="jhi_type" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="sof" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="merchant_id" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="payment_channel" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+
+            <!-- jhipster-needle-liquibase-add-column - JHipster will add columns here, do not remove-->
+        </createTable>
+        <dropDefaultValue tableName="settlement_report" columnName="payment_time" columnDataType="datetime"/>
+        <dropDefaultValue tableName="settlement_report" columnName="settlement_time" columnDataType="datetime"/>
+        
+    </changeSet>
+    <!-- jhipster-needle-liquibase-add-changeset - JHipster will add changesets here, do not remove-->
+</databaseChangeLog>

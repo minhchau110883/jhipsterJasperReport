@@ -1,0 +1,50 @@
+{
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "relationships": [],
+    "fields": [
+        {
+            "fieldName": "employeeId",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "customerName",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "customerAddress",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "customerPhone",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "menu",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "totalAmount",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "orderDate",
+            "fieldType": "ZonedDateTime"
+        },
+        {
+            "fieldName": "shippedDate",
+            "fieldType": "ZonedDateTime"
+        },
+        {
+            "fieldName": "shipVia",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20190115092113",
+    "dto": "mapstruct",
+    "searchEngine": false,
+    "service": "serviceImpl",
+    "entityTableName": "order_delivery",
+    "jpaMetamodelFiltering": true,
+    "pagination": "infinite-scroll"
+}

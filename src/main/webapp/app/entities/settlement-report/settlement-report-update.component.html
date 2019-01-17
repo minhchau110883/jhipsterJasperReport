@@ -1,0 +1,118 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-settlement-report-heading">Create or edit a Settlement Report</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!settlementReport.id">
+                    <label for="id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="settlementReport.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_partnerTransactionId">Partner Transaction Id</label>
+                    <input type="text" class="form-control" name="partnerTransactionId" id="field_partnerTransactionId"
+                        [(ngModel)]="settlementReport.partnerTransactionId" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_transactionId">Transaction Id</label>
+                    <input type="text" class="form-control" name="transactionId" id="field_transactionId"
+                        [(ngModel)]="settlementReport.transactionId" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_contactId">Contact Id</label>
+                    <input type="text" class="form-control" name="contactId" id="field_contactId"
+                        [(ngModel)]="settlementReport.contactId" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_outletId">Outlet Id</label>
+                    <input type="text" class="form-control" name="outletId" id="field_outletId"
+                        [(ngModel)]="settlementReport.outletId" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_outletName">Outlet Name</label>
+                    <input type="text" class="form-control" name="outletName" id="field_outletName"
+                        [(ngModel)]="settlementReport.outletName" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_amount">Amount</label>
+                    <input type="number" class="form-control" name="amount" id="field_amount"
+                        [(ngModel)]="settlementReport.amount" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_fee">Fee</label>
+                    <input type="number" class="form-control" name="fee" id="field_fee"
+                        [(ngModel)]="settlementReport.fee" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_vat">Vat</label>
+                    <input type="number" class="form-control" name="vat" id="field_vat"
+                        [(ngModel)]="settlementReport.vat" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_feeIncluded">Fee Included</label>
+                    <input type="number" class="form-control" name="feeIncluded" id="field_feeIncluded"
+                        [(ngModel)]="settlementReport.feeIncluded" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_settlement">Settlement</label>
+                    <input type="number" class="form-control" name="settlement" id="field_settlement"
+                        [(ngModel)]="settlementReport.settlement" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_currency">Currency</label>
+                    <input type="text" class="form-control" name="currency" id="field_currency"
+                        [(ngModel)]="settlementReport.currency" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_wht">Wht</label>
+                    <input type="number" class="form-control" name="wht" id="field_wht"
+                        [(ngModel)]="settlementReport.wht" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_paymentTime">Payment Time</label>
+                    <div class="d-flex">
+                        <input id="field_paymentTime" type="datetime-local" class="form-control" name="paymentTime" [(ngModel)]="paymentTime"
+                        />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_settlementTime">Settlement Time</label>
+                    <div class="d-flex">
+                        <input id="field_settlementTime" type="datetime-local" class="form-control" name="settlementTime" [(ngModel)]="settlementTime"
+                        />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_type">Type</label>
+                    <input type="text" class="form-control" name="type" id="field_type"
+                        [(ngModel)]="settlementReport.type" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_sof">Sof</label>
+                    <input type="text" class="form-control" name="sof" id="field_sof"
+                        [(ngModel)]="settlementReport.sof" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_merchantId">Merchant Id</label>
+                    <input type="text" class="form-control" name="merchantId" id="field_merchantId"
+                        [(ngModel)]="settlementReport.merchantId" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_paymentChannel">Payment Channel</label>
+                    <input type="text" class="form-control" name="paymentChannel" id="field_paymentChannel"
+                        [(ngModel)]="settlementReport.paymentChannel" />
+                </div>
+
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span>Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span>Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

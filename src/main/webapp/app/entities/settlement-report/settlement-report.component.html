@@ -1,0 +1,88 @@
+<div>
+    <h2 id="page-heading">
+        <span>Settlement Reports</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-settlement-report" [routerLink]="['/settlement-report/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span >
+            Create new Settlement Report
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="table-responsive" *ngIf="settlementReports">
+        <table class="table table-striped">
+            <thead>
+            <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="reset.bind(this)">
+            <th jhiSortBy="id"><span>ID</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="partnerTransactionId"><span>Partner Transaction Id</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="transactionId"><span>Transaction Id</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="contactId"><span>Contact Id</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="outletId"><span>Outlet Id</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="outletName"><span>Outlet Name</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="amount"><span>Amount</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="fee"><span>Fee</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="vat"><span>Vat</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="feeIncluded"><span>Fee Included</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="settlement"><span>Settlement</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="currency"><span>Currency</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="wht"><span>Wht</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="paymentTime"><span>Payment Time</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="settlementTime"><span>Settlement Time</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="type"><span>Type</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="sof"><span>Sof</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="merchantId"><span>Merchant Id</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="paymentChannel"><span>Payment Channel</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody infinite-scroll (scrolled)="loadPage(page + 1)" [infiniteScrollDisabled]="page >= links['last']" [infiniteScrollDistance]="0">
+            <tr *ngFor="let settlementReport of settlementReports ;trackBy: trackId">
+                <td><a [routerLink]="['/settlement-report', settlementReport.id, 'view' ]">{{settlementReport.id}}</a></td>
+                <td>{{settlementReport.partnerTransactionId}}</td>
+                <td>{{settlementReport.transactionId}}</td>
+                <td>{{settlementReport.contactId}}</td>
+                <td>{{settlementReport.outletId}}</td>
+                <td>{{settlementReport.outletName}}</td>
+                <td>{{settlementReport.amount}}</td>
+                <td>{{settlementReport.fee}}</td>
+                <td>{{settlementReport.vat}}</td>
+                <td>{{settlementReport.feeIncluded}}</td>
+                <td>{{settlementReport.settlement}}</td>
+                <td>{{settlementReport.currency}}</td>
+                <td>{{settlementReport.wht}}</td>
+                <td>{{settlementReport.paymentTime | date:'medium'}}</td>
+                <td>{{settlementReport.settlementTime | date:'medium'}}</td>
+                <td>{{settlementReport.type}}</td>
+                <td>{{settlementReport.sof}}</td>
+                <td>{{settlementReport.merchantId}}</td>
+                <td>{{settlementReport.paymentChannel}}</td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['/settlement-report', settlementReport.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/settlement-report', settlementReport.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'settlement-report/'+ settlementReport.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
